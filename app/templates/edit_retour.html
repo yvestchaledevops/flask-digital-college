@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier un retour</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Modifier le retour</h1>
+    <form method="POST" action="{{ url_for('admin.edit_retour', retour_id=retour.id) }}">
+        <label>Nom du Bootcamp :</label>
+        <input type="text" name="nom_bootcamp" value="{{ retour.nom_bootcamp }}" required>
+
+        <label>Formation :</label>
+        <input type="text" name="formation" value="{{ retour.formation }}" required>
+
+        <label>Priorité de Retour :</label>
+        <input type="text" name="priorite_retour" value="{{ retour.priorite_retour }}" required>
+
+        <label>Type de Retour :</label>
+        <input type="text" name="type_retour" value="{{ retour.type_retour }}" required>
+
+        <label>Date :</label>
+        <input type="date" name="date_retour" value="{{ retour.date_retour }}" required>
+
+        <label>Évaluation :</label>
+        <input type="number" name="evaluation" min="1" max="5" value="{{ retour.evaluation }}" required>
+
+        <label>Commentaires :</label>
+        <textarea name="commentaires" rows="4" required>{{ retour.commentaires }}</textarea>
+
+        <button type="submit">Enregistrer</button>
+    </form>
+</body>
+</html>

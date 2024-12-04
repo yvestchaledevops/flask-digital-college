@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Tableau de bord administrateur</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Tableau de bord administrateur</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom du Bootcamp</th>
+                <th>Formation</th>
+                <th>Priorité</th>
+                <th>Type</th>
+                <th>Date</th>
+                <th>Évaluation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for retour in retours %}
+            <tr>
+                <td>{{ retour.id }}</td>
+                <td>{{ retour.nom_bootcamp }}</td>
+                <td>{{ retour.formation }}</td>
+                <td>{{ retour.priorite_retour }}</td>
+                <td>{{ retour.type_retour }}</td>
+                <td>{{ retour.date_retour }}</td>
+                <td>{{ retour.evaluation }}</td>
+                <td>
+                    <a href="{{ url_for('admin.edit_retour', retour_id=retour.id) }}">Modifier</a> |
+                    <a href="{{ url_for('admin.delete_retour', retour_id=retour.id) }}" onclick="return confirm('Êtes-vous sûr ?')">Supprimer</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Récupérer les messages flash via Jinja2
+            {% with messages = get_flashed_messages(with_categories=True) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        // SweetAlert
+                        Swal.fire({
+                            title: "{{ 'Succès' if category == 'success' else 'Erreur' }}",
+                            text: "{{ message | safe }}", // Utilisez `safe` pour inclure les chaînes telles quelles
+                            icon: "{{ category }}", // 'success' ou 'error'
+                            timer: 3000, // 3 secondes
+                            timerProgressBar: true,
+                            showConfirmButton: false
+                        });
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        });
+    </script>
+</body>
+</html>
