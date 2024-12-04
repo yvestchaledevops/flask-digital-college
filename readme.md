@@ -19,7 +19,7 @@ chmod +x create_project_folder.sh
 pip install flask flask-sqlalchemy pymysql flask-migrate
 
 #Install requirement.txt
-pip install -r requirements.txt
+python install -r requirements.txt
 
 #Initiation des migration
 set $env:FLASK_APP="run.py"

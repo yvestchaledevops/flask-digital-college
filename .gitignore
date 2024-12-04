@@ -1,9 +1,2 @@
 # Exclure les fichiers temporaires de MySQL
-sql_data/mysql.sock
-sql_data/mysql.sock.lock
-sql_data/#*
-sql_data/*.pid
-sql_data/*.err
-sql_data/*.index
-sql_data/*.lock
-sql_data/*.cnf
+sql_data/* 
