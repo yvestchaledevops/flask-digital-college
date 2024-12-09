@@ -6,6 +6,6 @@ class Config:
 
     # MySQL Database Configuration
     SQLALCHEMY_DATABASE_URI = (
-        f"mysql+pymysql://root:mysql@localhost/digital_college"
+        f"mysql+pymysql://root:mysql@mysql/digital_college"
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False

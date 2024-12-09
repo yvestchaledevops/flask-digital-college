@@ -1,0 +1,33 @@
+# Ignorer les fichiers de configuration spécifiques à l'environnement
+.env
+
+# Ignorer les fichiers générés par Python
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignorer les logs
+*.log
+
+# Ignorer les fichiers de données MySQL
+sql_data/
+
+# Ignorer les fichiers de migration
+migrations/versions/
+
+# Ignorer les fichiers de débogage
+*.swp
+*.swo
+*.bak
+
+# Ignorer les fichiers cachés par l'éditeur
+.DS_Store
+.idea/
+.vscode/
+
+# Ignorer le contrôle de version Git
+.git
+.gitignore
+
+# Ignorer les fichiers de build Docker
+Dockerfile~
